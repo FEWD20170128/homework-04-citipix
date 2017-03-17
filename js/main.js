@@ -5,23 +5,24 @@ $(function() {
   var citySubmitted = "default";
 
   //2. Listen for submit event on the form
-  $("form").submit(cityEntered);
+  $("form").submit(getUserInput);
   $("form").submit(parseCityChoice);
 
-  //3. Create a function that will extract the input submitted
-  function cityEntered(event) {
+  //3. Create a function that will get the user's city input
+  function getUserInput(event) {
     //Prevent the default behavior of the form
     event.preventDefault();
 
     console.log("city name submitted");
 
-    //extract city name input submitted
+    //Create a function that will extract the user city input
+
     var citySubmitted = $("input").val();
     console.log("city entered:", citySubmitted);
-
+    
   }
 
-   //4. Create if/else statements for each city option
+   // 4. Create if/else statements for each city option
     function parseCityChoice(event) {
       event.preventDefault();
       if (citySubmitted === "New York" || "New York City" || "NYC") {
