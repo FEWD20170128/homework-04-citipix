@@ -6,7 +6,6 @@ $(function() {
 
   //2. Listen for submit event on the form
   $("form").submit(getUserInput);
-  $("form").submit(parseCityChoice);
 
   //3. Create a function that will get the user's city input
   function getUserInput(event) {
@@ -19,22 +18,28 @@ $(function() {
 
     var citySubmitted = $("input").val();
     console.log("city entered:", citySubmitted);
+
+    parseCityChoice(citySubmitted);
     
   }
 
    // 4. Create if/else statements for each city option
-    function parseCityChoice(event) {
-      event.preventDefault();
-      if (citySubmitted === "New York" || "New York City" || "NYC") {
+    function parseCityChoice(citySubmitted) {
+      if (citySubmitted === "New York" || citySubmitted === "New York City" || citySubmitted === "NYC") {
         console.log("picture of nyc");
-      }  else if (citySubmitted === "San Francisco" || "SF" || "Bay Area") {
+        $("body").css("background-image", "url(images/nyc.jpg)");
+      }  else if (citySubmitted === "San Francisco" || citySubmitted === "SF" || citySubmitted === "Bay Area") {
         console.log("picture of sf");
-      } else if (citySubmitted === "Los Angeles" || "LA" || "LAX") {
+        $("body").css("background-image", "url(images/sf.jpg)");
+      } else if (citySubmitted === "Los Angeles" || citySubmitted === "LA" || citySubmitted === "LAX") {
         console.log("picture of LA");
-      } else if (citySubmitted === "Austin" || "ATX") {
+        $("body").css("background-image", "url(images/la.jpg)");
+      } else if (citySubmitted === "Austin" || citySubmitted === "ATX") {
         console.log("picture of Austin");
-      } else if (citySubmitted === "Sydney" || "SYD") {
+        $("body").css("background-image", "url(images/austin.jpg)");
+      } else if (citySubmitted === "Sydney" || citySubmitted === "SYD") {
         console.log("picture of Sydney");
+        $("body").css("background-image", "url(images/sydney.jpg)");
       } else {
         console.log("error");
       }
